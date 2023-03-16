@@ -60,5 +60,5 @@ if __name__ == '__main__':
 
 
 @app.post("/send_dredicted_disease")
-def send_data(symptoms:any):
+def send_data(symptoms):
     return {Predicted_Disease(symptoms)}
