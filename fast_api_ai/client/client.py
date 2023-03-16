@@ -15,5 +15,11 @@ print(url)
 respons=requests.get(url)
 print(respons.json())
 
-respons2=requests.post(url,item=10)
-print(respons2)
+
+item = {"key1": "value1", "key2": "value2"}  # Data to be posted as a dictionary
+
+res = requests.post(url, data={"item": item})
+
+print(res.status_code)  # Print the status code of the response
+print(res.text)  # Print the response text
+print(res)
