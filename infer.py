@@ -1,7 +1,22 @@
 import pandas as pd
 import numpy as np
 from joblib import load
+from typing import Union
+from fastapi import FastAPI
+from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 
+app = FastAPI()
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 if __name__ == '__main__':
     def Predicted_Disease(symptoms):
@@ -42,3 +57,8 @@ if __name__ == '__main__':
             result = clf.predict(df_test)
             return result
             # print(f"Predicted Disease: {result}")
+
+
+@app.post("/send_dredicted_disease")
+def send_data(symptoms:any):
+    return {Predicted_Disease(symptoms)}
