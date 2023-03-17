@@ -1,1 +1,0 @@
-GET https://taffahachraf-potential-spork-jpqvj9g9vvpfpjww-8000.preview.app.github.dev
